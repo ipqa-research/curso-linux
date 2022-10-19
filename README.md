@@ -12,6 +12,7 @@ Linux como sistema de trabajo diario
 - Instalación
 - Softwares útiles
     - LibreOffice
+    - rclone
     - MathCAD ruso?
 
 - Terminal
