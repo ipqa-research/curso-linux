@@ -101,15 +101,14 @@ una secuencia de comandos a realizar.
 
 nombre=$1  # Primer argumento
 
+# Crea una carpeta 
 fpm new "$nombre"
+
+# Ir a la nueva carpeta
 cd "$nombre"
-echo"
-[submodule ".vscode"]
-	path = .vscode
-	url = git@github.com:ipqa-research/vscode-fortran.git
-" > .gitmodules
-git submodule init
-git pull --recurse-submodules
+
+# Añade configuraciones generales de vscode al proyecto
+git submodule add "git@github.com:ipqa-research/vscode-fortran.git" .vscode
 ```
 
 # Tarea
