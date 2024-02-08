@@ -8,6 +8,28 @@ setup_oneapi() {
     | sudo tee /etc/apt/sources.list.d/oneAPI.list
 }
 
+setup_fortran_project(){
+    mkdir -p ~/.local/bin
+echo'
+#!/bin/bash
+# ~/.local/bin/fortran_project
+
+nombre=$1  # Primer argumento
+
+fpm new "$nombre"
+cd "$nombre"
+echo"
+[submodule ".vscode"]
+	path = .vscode
+	url = git@github.com:ipqa-research/vscode-fortran.git
+" > .gitmodules
+git submodule init
+git pull --recurse-submodules
+' > ~/.local/bin/fortran_project
+    chmod +x ~/.local/bin/fortran_project
+}
+
+
 install_packages() {
     # Setup oneapi servers
     echo ""
@@ -50,8 +72,10 @@ Este script instalará:
     - findent: Para formatear código (ordenar indentaciones)
     - flinter: Para hacer análisis de código
     - fpm: Gestor de paquetes de código, para generar y correr proyectos
+    - script generador de proyecto fortran `fortran_project`
 "
 
+setup_fortran_project
 
 echo "
 Desea continuar? [y/n]
