@@ -10,21 +10,19 @@ setup_oneapi() {
 
 setup_fortran_project(){
     mkdir -p ~/.local/bin
-echo'
-#!/bin/bash
-# ~/.local/bin/fortran_project
+    echo '#!/bin/bash
+# ~/.local/bin/fortran_project.sh
 
 nombre=$1  # Primer argumento
 
+# Crea una carpeta 
 fpm new "$nombre"
+
+# Ir a la nueva carpeta
 cd "$nombre"
-echo"
-[submodule ".vscode"]
-	path = .vscode
-	url = git@github.com:ipqa-research/vscode-fortran.git
-" > .gitmodules
-git submodule init
-git pull --recurse-submodules
+
+# Añade configuraciones generales de vscode al proyecto
+git submodule add "git@github.com:ipqa-research/vscode-fortran.git" .vscode
 ' > ~/.local/bin/fortran_project
     chmod +x ~/.local/bin/fortran_project
 }
