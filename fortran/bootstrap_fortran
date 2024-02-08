@@ -51,7 +51,7 @@ install_packages() {
         gdb
 
     # Install fortran language server, fprettify and flinter
-    packages=( fortls findent flinter fpm )
+    packages=( fortls findent flinter ford fpm )
     for package in ${packages[@]}; do
         pipx install $package
     done
