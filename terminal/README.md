@@ -97,10 +97,19 @@ una secuencia de comandos a realizar.
 
 ```bash
 #!/bin/bash
-# script.sh
+# ~/.local/bin/fortran_project.sh
 
-echo "Primer hola!"
-echo "Segundo hola!"
+nombre=$1  # Primer argumento
+
+fpm new "$nombre"
+cd "$nombre"
+echo"
+[submodule ".vscode"]
+	path = .vscode
+	url = git@github.com:ipqa-research/vscode-fortran.git
+" > .gitmodules
+git submodule init
+git pull --recurse-submodules
 ```
 
 # Tarea
