@@ -18,6 +18,8 @@ Entre las principales ventajas de trabajar con una terminal se encuentran:
 
 ## Terminal
 
+![Terminal](figs/term_1.png)
+
 ## Ejecución de comandos
 
 Un comando de terminal tiene la siguiente estructura
