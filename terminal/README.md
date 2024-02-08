@@ -49,7 +49,7 @@ cal --help
 
 ### Navegación
 - `pwd`: Nos muestran donde estamos parados.
-- `ls` : Nos muestra
+- `ls` : Nos muestra los archivos de donde estamos.
 - `cd` : "Cambiar directorio"
 
 ### Manipulación de archivos y directorios
@@ -61,15 +61,47 @@ cal --help
 - `grep`: Buscar texto en archivo
 
 ### Trabajo con texto
-- `sort`
-- `uniq`
-- `wc`
-- `sed`
-- `awk`
+- `sort`: Ordenar (usar `sort -n` para números)
+- `uniq`: Dejar solo valores únicos
+- `wc`: Contar palabras, líneas y letras
+- `sed`: Modificar texto
+- `awk`: Manipular columnas
 
 ### Redirecciones
 - `>`: Enviar los prints a un archivo.
 - `|`: Redirigir los prints a un comando.
 - `<`: Redirigir los contenidos de un archivo a un comando.
 
+## Aliases
+A veces un comando se utiliza mucho y tiene sentido resumirlo. Esto se hace
+mediante un alias. Por ejemplo quiero un comando que abra `vscode` en un lugar
+particular.
+
+```bash
+alias eos="code docs/research/thermo/algos/yaeos"
+```
+
+Los aliases solo duran durante la sesión de la terminal. Para hacerlos permanentes
+es necesario agregarlos al archivo `.bashrc`. El archivo donde se guardan
+las configuraciones de la terminal.
+
+```bash
+# Se agregan escapes a las comillas
+echo alias eos=\"code docs/research/thermo/algos/yaeos\" > ~/.bashrc
+```
+
 ## Scripts
+A veces queremos resumir una secuencia de comandos, no un único comando.
+Para esto se puede realizar un script. Un script es un archivo que contiene
+una secuencia de comandos a realizar.
+
+```bash
+#!/bin/bash
+# script.sh
+
+echo "Primer hola!"
+echo "Segundo hola!"
+```
+
+# Tarea
+https://linuxjourney.com/lesson/the-shell
