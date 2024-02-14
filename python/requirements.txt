@@ -1,3 +1,6 @@
 matplotlib
+black
+black[jupyter]
+scipy
 pandas == 2.2.0
 thermo >= 0.2.27
