@@ -21,7 +21,7 @@ al lenguaje nunca antes visto).
 
 
 ### Historia
-Wkipedia: 
+Wikipedia: 
 
 Python es un lenguaje de alto nivel de programación interpretado cuya filosofía
 hace hincapié en la legibilidad de su código, se utiliza para desarrollar
@@ -207,6 +207,10 @@ podemos hacer:
 *Ver archivo ejemplo de requirements.txt del seminario
 
     matplotlib
+    black
+    black[jupyter]
+    scipy
+    numpy
     pandas == 2.2.0
     thermo >= 0.2.27
 
@@ -217,3 +221,117 @@ podemos hacer:
 
 ### Extensión de VScode
 ![extension](./figures/extension.jpg)
+
+
+### Como trabajar con el lenguaje Python
+
+#### Archivos *.py
+Es el equivalente a un .f90 de Fortran. En estos archivos podemos escribir
+nuestro código Python. Dentro de estos archivos podemos escribir nuestro código
+Python y correrlo de la terminal con:
+
+```shell
+    python3 python/examples/example1.py
+```
+
+*Ver la carpeta "examples" de este seminario.
+
+También, es posible correr un archivo *.py utilizando el botón correr (▶). Si
+recibió un error al hacer esto con el example1.py, era lo esperado.
+
+VScode no sabe con cual intérprete de Python se está queriendo correr el
+archivo, por lo que usa el intérprete del sistema por defecto.
+
+Para cambiar el intérprete que utiliza VScode se debe hacer:
+
+    ctrl + shift + p
+
+Y buscar la opción:
+
+    Python: select interpreter
+
+o en español:
+
+    Python: seleccionar intérprete
+
+Se desplegará una lista de intérpretes a seleccionar. Debería figurar el
+entorno virtual creado. Seleccionarlo.
+
+Una forma alternativa y más visual de hacer esto. Hacer click derecho y
+habilitar el menú de Python como se muestra en la figura:
+
+![activar_python](figures/activar_python.png)
+
+Dentro de la pestaña nueva correspondiente a Python seleccionar el entorno
+virtual como el intérprete del espacio de trabajo.
+
+![seleccionar_interprete](figures/seleccionar_interprete.png)
+
+En este caso estoy seleccionando un entorno llamado curso-linux. 
+
+Si son curiosos notarán que desde esta pestaña se pueden gestionar todos los
+entornos virtuales, crearlos, borrarlos, ver que librerías tienen, etc. Incluso
+entornos de otras distribuciones de Python como Anaconda.
+
+
+#### Formatear archivos .py
+Es bueno seguir un estandar a la hora de programar. Los estandares se definen
+por lo que uno podría definir su propio estandar pero eso no es conveniente por
+obvias razones. A la hora de interactuar con otros desarrolladores todos
+deberían tener un estandar en común.
+
+En Python existe un estandar gratuito que se puede consultar llamado PEP8.
+
+https://peps.python.org/pep-0008/
+
+Esto es muy extenso y aprender absolutamente todo sobre esto llevaría mucho mas
+tiempo y sobre todo práctica por parte de los oyentes.
+
+- Funciones:  Usa nombres descriptivos y sigue la convención snake_case (todo
+  en minúsculas y separado por guiones bajos).
+
+- Clases: Utiliza la convención CamelCase para nombrar clases (inicia cada
+  palabra con mayúscula sin espacios ni guiones).
+
+- Variables: igual que funciones.
+
+- Longitud máxima de linea: 79 caracteres.
+
+En este tutorial solo exploraremos el último item que puede ser corregido
+automáticamente por la biblioteca `black`. Ver el ejemplo
+python/examples/formateo_py/codigo_feo.py
+
+```shell
+    black python/examples/formateo_py/ -l 79
+```
+
+Ver como el código ha cambiado
+
+
+#### Archivos *.ipynb
+Los Jupyter Notebooks son entornos interactivos de computación que permiten
+crear y compartir documentos que contienen código ejecutable, visualizaciones,
+texto explicativo y elementos multimedia. Estos documentos se organizan en
+celdas, donde cada celda puede contener texto en formato Markdown o código en
+un lenguaje de programación como Python, R, Julia, entre otros.
+
+Una de las principales ventajas de los Jupyter Notebooks es su capacidad para
+ejecutar código de manera interactiva, lo que significa que puedes escribir y
+ejecutar fragmentos de código de forma independiente en cualquier orden. Esto
+facilita la exploración de datos, el prototipado de algoritmos y la
+presentación de resultados.
+
+*Ver el archivo python/examples/example1.ipynb
+
+#### Seleccionar el intérprete de Python  del notebook
+Al igual que con los archivos .py hay que seleccionar el intérprete del 
+notebook utilizando el boton "select kernel" en la parte superior derecha.
+
+#### Formateo de archivos .ipynb
+Al igual que los archivos .py se pueden formatear con black instalando el
+complemento black[jupyter]
+
+```shell
+    pip install black[jupyter]
+```
+
