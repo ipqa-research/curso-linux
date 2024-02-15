@@ -4,7 +4,12 @@ Git es una herramienta de control de versiones muy poderosa que te permite
 rastrear cambios en tus proyectos de software. Aquí tienes una guía rápida para
 comenzar a usar Git.
 
-### Instalación
+Git es un sistema de gestión de versiones local, pero existen múltiples
+herramientas remotas que permiten su sincronización con la nube. Siendo
+la más común ![GitHub](https://github.com/). En esta clase se asume una cuenta
+en GitHub ya creada.
+
+## Instalación
 
 Primero, necesitas instalar Git en tu sistema. Puedes descargarlo desde
 [git-scm.com](https://git-scm.com/) e instalarlo siguiendo las instrucciones
