@@ -10,7 +10,8 @@ Linux como sistema de trabajo diario
   - o el [subsistema Linux de
     Windows](https://learn.microsoft.com/es-es/windows/wsl/install) ![video
     tutorial de instalación](https://www.youtube.com/watch?v=XbgTYz-SjFI)
-
+- Recomendamos tener instalado ![Visual Studio Code](https://code.visualstudio.com/)
+  - En el caso de utilizar WSL, dentro de este instalar la extensión `WSL`
 ## Programa
 
 Se asume que el usuario ya tiene o una distribución de linux instalada en su
