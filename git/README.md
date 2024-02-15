@@ -1,4 +1,4 @@
-# Tutorial de git (ChatGPT generado)
+# Tutorial de git
 
 Git es una herramienta de control de versiones muy poderosa que te permite
 rastrear cambios en tus proyectos de software. Aquí tienes una guía rápida para
@@ -64,8 +64,7 @@ git add .
 
 ### Realizar un Commit
 
-Una vez que hayas añadido los archivos que quieres guardar, puedes crear un
-commit para guardar los cambios en el repositorio.
+Una vez que hayas añadido los archivos que quieres guardar, puedes crear un commit para guardar los cambios en el repositorio.
 
 ```bash
 git commit -m "Mensaje de commit descriptivo"
@@ -150,7 +149,7 @@ git pull
 
 Esto va a traer todos los cambios que se hayan echo en el remoto.
 
-> Ojo! 
+> Ojo!
 >
 > 1. Para hacer un pull es necesario haber commiteado nuestros cambios locales.
 > 2. Puede que esto genere conflictos.
@@ -166,6 +165,25 @@ git push origin nombre_de_la_rama
 
 Esto enviará tus cambios desde la rama local al repositorio remoto.
 
+
+## git me tiene re podrido con archivos que no me interesa seguir!
+
+Para eso se puede crear el archivo `.gitignore` en el directorio principal del
+repositorio. Donde agregamos los archivos que no queremos que se agreguen al
+control de versiones. Permite el uso de caracteres especiales como `*`.
+
+Un archivo que contiene:
+
+```
+nosigas-*
+src/ignorar-*
+docs/numero_tarjeta_credito.txt
+```
+
+Ignoraría todos los archivos que empiecen con `nosigas-`, los que empiecen con
+`ignorar-` en la carpeta `src` (sin incluir subcarpetas, a esos si los
+seguiría) y al `docs/numero_tarjeta_credito.txt`.
+
 ## GitHub
 
 Vimos cómo trabajar con un repositorio remoto, existen muchos servicios que
@@ -179,11 +197,3 @@ A partir de ahora asumimos que ya hicieron la cuenta en GitHub
 > sudo apt install github-cli
 > gh auth login
 > ```
-
-### Página principal
-
-### Creación de repositorio
-
-### Clonación de repositorio
-
-## Utilización desde `vscode`
