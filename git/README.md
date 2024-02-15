@@ -10,6 +10,15 @@ Primero, necesitas instalar Git en tu sistema. Puedes descargarlo desde
 [git-scm.com](https://git-scm.com/) e instalarlo siguiendo las instrucciones
 para tu sistema operativo.
 
+> En el caso de utilizar una distribución Linux basada en Debian (como Linux
+> Mint), o WSL instalar con:
+>
+> ```bash
+> sudo apt install git
+> ```
+>
+> Aunque suele estar pre-instalado.
+
 ## Configuración Inicial
 
 Después de instalar Git, configura tu nombre de usuario y tu dirección de
@@ -42,7 +51,7 @@ git add nombre_del_archivo
 ```
 
 También puedes añadir todos los archivos con cambios al área de preparación
-usando:
+usando *no recomendado*:
 
 ```bash
 git add .
@@ -63,6 +72,13 @@ Puedes ver el historial de commits en tu repositorio utilizando:
 
 ```bash
 git log
+
+```
+
+O, más bonito:
+
+```bash
+git log --oneline --graph
 ```
 
 Este comando mostrará todos los commits, junto con información como el autor,
@@ -91,7 +107,8 @@ git switch nombre_de_la_rama
 
 ### Fusionar Ramas
 
-Una vez que hayas realizado cambios en una rama y quieras combinarlos con otra rama, puedes hacerlo usando el comando git merge.
+Una vez que hayas realizado cambios en una rama y quieras combinarlos con otra
+rama, puedes hacerlo usando el comando git merge.
 
 ```bash
 git checkout rama_destino
@@ -116,3 +133,5 @@ git push origin nombre_de_la_rama
 ```
 
 Esto enviará tus cambios desde la rama local al repositorio remoto.
+
+## Utilización desde `vscode`
