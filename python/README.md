@@ -74,7 +74,6 @@ Checkear la instalacion:
     pip3 --version
 ```
 
-
 ### Trabajar en entornos virtuales
 
 Trabajar en entornos virtuales con Python es esencial para garantizar la

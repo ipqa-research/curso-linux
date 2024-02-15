@@ -7,16 +7,18 @@ Linux como sistema de trabajo diario
 - Una compu
 - Tener preinstalada una distribución Linux:
   - ![recomendamos Linux Mint](https://linuxmint.com/) 
-  - o el [subsistema Linux de Windows](https://learn.microsoft.com/es-es/windows/wsl/install)
-    ![video tutorial de instalación](https://www.youtube.com/watch?v=XbgTYz-SjFI)
+  - o el [subsistema Linux de
+    Windows](https://learn.microsoft.com/es-es/windows/wsl/install) ![video
+    tutorial de instalación](https://www.youtube.com/watch?v=XbgTYz-SjFI)
 
 ## Programa
 
 Se asume que el usuario ya tiene o una distribución de linux instalada en su
 computadora
 
-- Qué es Linux, historia básica
-- Softwares útiles
+- Qué es Linux, historia básica (TO DO)
+
+- Softwares útiles (TO DO)
     - LibreOffice
     - rclone
     - MathCAD ruso?
@@ -27,9 +29,19 @@ computadora
     - Comandos de lectura/modificación de archivos
     - Scripting
 
-- [Control de versiones (git)](git/): Como cuidar el desarrollo de nuestros archivos. No solo código!
+- [Control de versiones (git)](git/): Como cuidar el desarrollo de nuestros
+  archivos. No solo código!
   - Uso desde terminal.
   - Uso desde vscode.
+
+- [Python](python/): Empezar a usar Python bien
+  - Historia
+  - Uso del administrador de paquetes de Python para instalar librerías (pip).
+  - Uso de entornos virtuales de Python para un trabajo organizado y
+    reproducible en el tiempo.
+  - Administración de entornos virtuales desde terminal y VScode.
+  - Trabajo con archivos *.py *.ipynb
+  - Nociones básicas de estándares de programación. Uso de la librería `black`.
 
 
 ## Autores
