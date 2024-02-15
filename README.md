@@ -21,12 +21,11 @@ computadora
     - rclone
     - MathCAD ruso?
 
-- Terminal
+- [Terminal](terminal/)
     - shell
     - Comandos de navegación
     - Comandos de lectura/modificación de archivos
     - Scripting
-
 
 ## Autores
 - Benelli, Federico
