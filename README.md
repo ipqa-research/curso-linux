@@ -21,11 +21,16 @@ computadora
     - rclone
     - MathCAD ruso?
 
-- [Terminal](terminal/)
+- [Terminal](terminal/): Dejar de tenerle miedo y ver sus ventajas.
     - shell
     - Comandos de navegación
     - Comandos de lectura/modificación de archivos
     - Scripting
+
+- [Control de versiones (git)](git/): Como cuidar el desarrollo de nuestros archivos. No solo código!
+  - Uso desde terminal.
+  - Uso desde vscode.
+
 
 ## Autores
 - Benelli, Federico
