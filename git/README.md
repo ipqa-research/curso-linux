@@ -5,9 +5,9 @@ rastrear cambios en tus proyectos de software. Aquí tienes una guía rápida pa
 comenzar a usar Git.
 
 Git es un sistema de gestión de versiones local, pero existen múltiples
-herramientas remotas que permiten su sincronización con la nube. Siendo
-la más común ![GitHub](https://github.com/). En esta clase se asume una cuenta
-en GitHub ya creada.
+herramientas remotas que permiten su sincronización con la nube. Siendo la más
+común ![GitHub](https://github.com/). En esta clase se asume una cuenta en
+GitHub ya creada.
 
 ## Instalación
 
@@ -119,8 +119,28 @@ rama, puedes hacerlo usando el comando git merge.
 git checkout rama_destino
 git merge rama_fuente
 ```
+## Trabajar con repositorios remotos
+Todo muy bien con trabajar localmente, es muy útil, pero a mí me dijeron que
+esto ayuda a trabajar colaborativamente...
 
-## Actualizar tu Repositorio Local
+Así es! Para vincular un repositorio con un repositorio online existen
+distintas formas.
+
+- Parto de un repositorio local y quiero crear un repositorio remoto.
+Es necesario generarlo desde la página en que se va a trabajar (ejemplo en
+sección de GitHub)
+
+> ```bash
+> git remote add origin <link al repositorio remoto>
+> ```
+
+- Ya existe un repositorio remoto y quiero replicarlo en mi máquina
+
+> ```bash
+> git pull <link al repositorio remoto>
+> ```
+
+### Actualizar tu Repositorio Local
 
 Para obtener los últimos cambios desde un repositorio remoto, utiliza:
 
@@ -128,7 +148,14 @@ Para obtener los últimos cambios desde un repositorio remoto, utiliza:
 git pull
 ```
 
-## Enviar Cambios al Repositorio Remoto
+Esto va a traer todos los cambios que se hayan echo en el remoto.
+
+> Ojo! 
+>
+> 1. Para hacer un pull es necesario haber commiteado nuestros cambios locales.
+> 2. Puede que esto genere conflictos.
+
+### Enviar Cambios al Repositorio Remoto
 
 Si quieres compartir tus cambios con otros o respaldarlos en un repositorio
 remoto, utiliza:
@@ -138,5 +165,25 @@ git push origin nombre_de_la_rama
 ```
 
 Esto enviará tus cambios desde la rama local al repositorio remoto.
+
+## GitHub
+
+Vimos cómo trabajar con un repositorio remoto, existen muchos servicios que
+ofrecen esta funcionalidad. Siendo el más reconocido GitHub.
+
+A partir de ahora asumimos que ya hicieron la cuenta en GitHub
+
+> Para logearse en gh desde la terminal se utiliza la applicación `gh`
+>
+> ```bash
+> sudo apt install github-cli
+> gh auth login
+> ```
+
+### Página principal
+
+### Creación de repositorio
+
+### Clonación de repositorio
 
 ## Utilización desde `vscode`
