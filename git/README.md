@@ -10,8 +10,15 @@ común [GitHub](https://github.com/). En esta clase se asume una cuenta en
 GitHub ya creada.
 
 
+
 ## Flujo de trabajo general con `git`
-![Flujo de trabajo](figs/git-branches-merge.png)
+
+- Edito archivos
+- Para cada archivo:
+  - Dejo anotados los cambios (el Δarchivo)
+- Sacar una foto de todos esos cambios y darle una descripción
+
+![Flujo de trabajo](figs/git-general.png)
 
 _Recomendación_: Ejecutar los comandos que se muestran desde la terminal de
 `vscode`
@@ -97,6 +104,8 @@ Este comando mostrará todos los commits, junto con información como el autor,
 la fecha y la hora, y el mensaje del commit.
 
 ## Trabajar con Ramas
+
+![Ramas](figs/git-branches-merge.png)
 
 Las ramas te permiten trabajar en diferentes versiones de tu proyecto de forma
 simultánea. Para crear una nueva rama, usa:
