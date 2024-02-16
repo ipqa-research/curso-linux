@@ -6,8 +6,15 @@ comenzar a usar Git.
 
 Git es un sistema de gestión de versiones local, pero existen múltiples
 herramientas remotas que permiten su sincronización con la nube. Siendo la más
-común ![GitHub](https://github.com/). En esta clase se asume una cuenta en
+común [GitHub](https://github.com/). En esta clase se asume una cuenta en
 GitHub ya creada.
+
+
+## Flujo de trabajo general con `git`
+![Flujo de trabajo](figs/git-branches-merge.png)
+
+_Recomendación_: Ejecutar los comandos que se muestran desde la terminal de
+`vscode`
 
 ## Instalación
 
@@ -118,12 +125,46 @@ rama, puedes hacerlo usando el comando git merge.
 git checkout rama_destino
 git merge rama_fuente
 ```
+
+## git me tiene re podrido con archivos que no me interesa seguir!
+
+Para eso se puede crear el archivo `.gitignore` en el directorio principal del
+repositorio. Donde agregamos los archivos que no queremos que se agreguen al
+control de versiones. Permite el uso de caracteres especiales como `*`.
+
+Un archivo que contiene:
+
+```
+nosigas-*
+src/ignorar-*
+docs/numero_tarjeta_credito.txt
+```
+
+Ignoraría todos los archivos que empiecen con `nosigas-`, los que empiecen con
+`ignorar-` en la carpeta `src` (sin incluir subcarpetas, a esos si los
+seguiría) y al `docs/numero_tarjeta_credito.txt`.
+
+
 ## Trabajar con repositorios remotos
 Todo muy bien con trabajar localmente, es muy útil, pero a mí me dijeron que
 esto ayuda a trabajar colaborativamente...
 
 Así es! Para vincular un repositorio con un repositorio online existen
-distintas formas.
+distintas formas. Nosotros vamos a trabajar GitHub
+
+## GitHub
+GitHub es una plataforma online donde se alojan repositorios `git`.
+
+A partir de ahora asumimos que ya hicieron la cuenta en GitHub
+
+Para logearse en gh desde la terminal se utiliza la applicación `gh`
+
+```bash
+sudo apt install github-cli
+gh auth login
+```
+
+Algunos editores como `vscode` lo realizan automáticamente.
 
 - Parto de un repositorio local y quiero crear un repositorio remoto.
 Es necesario generarlo desde la página en que se va a trabajar (ejemplo en
@@ -159,41 +200,9 @@ Esto va a traer todos los cambios que se hayan echo en el remoto.
 Si quieres compartir tus cambios con otros o respaldarlos en un repositorio
 remoto, utiliza:
 
+
 ```bash
 git push origin nombre_de_la_rama
 ```
 
 Esto enviará tus cambios desde la rama local al repositorio remoto.
-
-
-## git me tiene re podrido con archivos que no me interesa seguir!
-
-Para eso se puede crear el archivo `.gitignore` en el directorio principal del
-repositorio. Donde agregamos los archivos que no queremos que se agreguen al
-control de versiones. Permite el uso de caracteres especiales como `*`.
-
-Un archivo que contiene:
-
-```
-nosigas-*
-src/ignorar-*
-docs/numero_tarjeta_credito.txt
-```
-
-Ignoraría todos los archivos que empiecen con `nosigas-`, los que empiecen con
-`ignorar-` en la carpeta `src` (sin incluir subcarpetas, a esos si los
-seguiría) y al `docs/numero_tarjeta_credito.txt`.
-
-## GitHub
-
-Vimos cómo trabajar con un repositorio remoto, existen muchos servicios que
-ofrecen esta funcionalidad. Siendo el más reconocido GitHub.
-
-A partir de ahora asumimos que ya hicieron la cuenta en GitHub
-
-> Para logearse en gh desde la terminal se utiliza la applicación `gh`
->
-> ```bash
-> sudo apt install github-cli
-> gh auth login
-> ```
