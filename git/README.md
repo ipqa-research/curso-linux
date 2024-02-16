@@ -40,7 +40,7 @@ los registros de cambios.
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
-git config pull.rebase true
+git config --global pull.rebase true
 ```
 
 ## Iniciar un Repositorio
