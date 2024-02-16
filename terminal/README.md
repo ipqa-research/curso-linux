@@ -115,5 +115,5 @@ git submodule add "git@github.com:ipqa-research/vscode-fortran.git" .vscode
 
 # Tarea y referencias extra
 
-- ![Ejercicios *simples* de terminal](https://linuxjourney.com/lesson/the-shell)
-- ![Video sobre uso de terminal](https://www.youtube.com/watch?v=W4gE8k2RE_s&t=1581s)
+- [Ejercicios *simples* de terminal](https://linuxjourney.com/lesson/the-shell)
+- [Video sobre uso de terminal](https://www.youtube.com/watch?v=W4gE8k2RE_s&t=1581s)

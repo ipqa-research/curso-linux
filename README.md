@@ -6,11 +6,11 @@ Linux como sistema de trabajo diario
 ## Requisitos
 - Una compu
 - Tener preinstalada una distribución Linux:
-  - ![recomendamos Linux Mint](https://linuxmint.com/) 
+  - [recomendamos Linux Mint](https://linuxmint.com/) 
   - o el [subsistema Linux de
-    Windows](https://learn.microsoft.com/es-es/windows/wsl/install) ![video
+    Windows](https://learn.microsoft.com/es-es/windows/wsl/install) [video
     tutorial de instalación](https://www.youtube.com/watch?v=XbgTYz-SjFI)
-- Recomendamos tener instalado ![Visual Studio Code](https://code.visualstudio.com/)
+- Recomendamos tener instalado [Visual Studio Code](https://code.visualstudio.com/)
   - En el caso de utilizar WSL, dentro de este instalar la extensión `WSL`
 ## Programa
 
