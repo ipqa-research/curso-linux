@@ -14,8 +14,7 @@ Linux como sistema de trabajo diario
   - En el caso de utilizar WSL, dentro de este instalar la extensión `WSL`
 ## Programa
 
-Se asume que el usuario ya tiene o una distribución de linux instalada en su
-computadora
+Se asume que el usuario ya tiene una distribución de linux instalada en su computadora (o bien WSL) 
 
 - Qué es Linux, historia básica (TO DO)
 
