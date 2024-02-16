@@ -74,6 +74,11 @@ Checkear la instalacion:
     pip3 --version
 ```
 
+**WARNING**  
+No confundir `pip` con `pipx`. `pipx` es una herramienta que funciona de manera
+muy similar a `pip`, pero su uso es para instalar aplicaciones desarrolladas en
+Python destinadas a ser utilizadas como comandos de terminal (explicado muy a groso modo). `pip` nos permite instalar librerías de Python para que podamos llamar su código desde nuestros propios códigos de Python. En resumen OLVIDENSE DE INSTALAR COSAS CON `pipx` A MENOS QUE ENTIENDAN QUE ES LO QUE QUIEREN HACER.
+
 ### Trabajar en entornos virtuales
 
 Trabajar en entornos virtuales con Python es esencial para garantizar la
@@ -266,7 +271,8 @@ virtual como el intérprete del espacio de trabajo.
 
 ![seleccionar_interprete](figures/seleccionar_interprete.png)
 
-En este caso estoy seleccionando un entorno llamado curso-linux. 
+En este caso estoy seleccionando un entorno llamado "articulo". Clickear sobre
+la estrella para hacerlo el entorno predefinido para el entorno de trabajo.
 
 Si son curiosos notarán que desde esta pestaña se pueden gestionar todos los
 entornos virtuales, crearlos, borrarlos, ver que librerías tienen, etc. Incluso
@@ -323,7 +329,7 @@ presentación de resultados.
 *Ver el archivo python/examples/example1.ipynb
 
 #### Seleccionar el intérprete de Python  del notebook
-Al igual que con los archivos .py hay que seleccionar el intérprete del 
+Al igual que con los archivos .py hay que seleccionar el intérprete del
 notebook utilizando el boton "select kernel" en la parte superior derecha.
 
 #### Formateo de archivos .ipynb
