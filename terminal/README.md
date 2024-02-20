@@ -55,14 +55,13 @@ cal --help
 - `cd` : "Cambiar directorio"
 
 ### Manipulación de archivos y directorios
-- `mkdir`: Crear directorio
-- `mv` : Mover
-- `cp` : Copiar (para copiar directorios se añade la flag `-r`)
-- `rm` : Remover (para remover directorios se añade la flag `-r`)
-- `cat`: Mostrar contenido de archivo
-- `head` y `tail`: Mostrar comienzo o fin de un archivo
-- `grep`: Buscar texto en archivo
-
+- `mkdir <ruta_directorio_nuevo>`: Crear directorio
+- `mv <desde> <hacia>` : Mover/Renombrar
+- `cp <desde> <hacia>` : Copiar (para copiar directorios se añade la flag `-r`)
+- `rm <ruta_archivo>` : Remover (para remover directorios se añade la flag `-r`)
+- `cat <archivo>`: Mostrar contenido de archivo
+- `head <archivo>` y `tail <archivo>`: Mostrar comienzo o fin de un archivo
+- `grep <texto> <archivo>`: Buscar texto en archivo
 
 > En el caso de `mkidr`, `mv`, `cp` y `rm` siempre es bueno agregar la flag
 > `-v` (de "verboso"), la cual devuelve un texto que confirma la acción
