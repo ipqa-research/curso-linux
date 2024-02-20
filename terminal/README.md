@@ -48,6 +48,22 @@ cal --help
 ```
 
 ## Comandos más importantes
+Aquí se enumeran con alguna breve descripción los comandos más imporatntes
+para "tener a mano".
+Información detallada de los mismos puede verse ejecutando `man <comando>`
+aunque recomendamos buscarlos en la página [tldr](https://tldr.inbrowser.app/) (_too long, didn't read_)
+
+<details>
+  <summary>Instalar `tldr`</summary>
+  Si bien es suficientemente cómodo usar `tldr` desde la web. Aún mejor sería
+  tenerlo a mano en la misma terminal, para eso podemos simplemente ejecutar
+
+  ```bash 
+  pip install --user tldr
+  ```
+  De no tener pip ver [Curso Python Bien](../python)
+</details>
+
 
 ### Navegación
 - `pwd`: Nos muestran donde estamos parados.
