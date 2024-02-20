@@ -162,7 +162,7 @@ la terminal, para eso es necesario volverlo ejecutable con `chmod +x
 
 ## `.bashrc`
 - Hacer que los comandos `mkdir`, `mv`, `cp`, `rm` siempre sean verbosos.
-  Correr esos comandos con la flag de ayuda (`--help`) y ver si no hay alguna
+- Correr esos comandos con la flag de ayuda (`--help`) y ver si no hay alguna
   flag extra que estaría bueno que esté siempre.
    <details>
      <summary>Ayuda</summary>
