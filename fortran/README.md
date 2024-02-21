@@ -195,6 +195,9 @@ subroutine suma(x, y)
 end subroutine
 ```
 
+Un ejemplo muy completo de una rutina bien documentada se puede ver
+[aqui](https://github.com/ipqa-research/fenvelopes/blob/main/src/linalg.f90#L148-L184)
+
 La documentación se puede generar con:
 
 ```bash
