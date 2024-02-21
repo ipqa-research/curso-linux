@@ -1,5 +1,7 @@
 # Trabajar con Fortran
 
+![frotan](figs/frotan.png)
+
 ## Pasos previos
 - Se asumen que se cumplieron los [requisitos principales del curso](../README.md#Requisitos)
 - Realizar la instalación de las [herramientas adicionales para Fortran](https://github.com/ipqa-research/fortran-setup)
@@ -58,6 +60,8 @@ Se puede agregar una dependencia agregando al final del archivo:
 
 ```toml
 [dependencies]
+# Libreria estandar de Fortran, debería de ir _siempre_.
+stdlib="*"
 # Librería de ecuaciones de estado
 yaeos = {git="https://github.com/ipqa-research/yaeos", tag="v0.1.0b2"}
 ```
@@ -70,9 +74,10 @@ no se rompe.
 Ponemos esto en el archivo `app/main.f90`
 
 ```fortran
+program main
     use yaeos, only: pr, EquilibriaState, flash, PengRobinson76, ArModel
     implicit none
-    
+
     class(ArModel), allocatable :: model
     type(EquilibriaState) :: flash_result
 
@@ -90,10 +95,11 @@ Ponemos esto en el archivo `app/main.f90`
     P = 60
     t = 294
     k0 = (PC/P)*exp(5.373*(1 + w)*(1 - TC/T))
-    print *, k0
-    
+    print *, "K0: ", k0
+
+    print *, "Running Flash!"
     flash_result = flash(model, n, t=t, p_spec=p, k0=k0, iters=iter)
-    
+
     print *, "X:", flash_result%x, sum(flash_result%x)
     print *, "Y:", flash_result%y, sum(flash_result%y)
     print *, "Vx: ", flash_result%Vx
@@ -103,11 +109,16 @@ Ponemos esto en el archivo `app/main.f90`
 end program
 ```
 
-Corremos de nuevo con `fpm run`
+Corremos de nuevo con `fpm run`, y yatá. Podemos jugar con parámetros en el 
+archivo main y volver a correr.
 
 > Protip:
 > `fpm run --profile release` hace que la compilación optimize el código
 > y corra más rápido.
+
+
+Listo, ya sabemos lo esencial para correr un código Fortran. No fue tanto
+quilombo
 
 ## Conceptos generales
 
