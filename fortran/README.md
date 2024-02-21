@@ -1,5 +1,25 @@
 # Trabajar con Fortran
 
+* [Pasos previos](#pasos-previos)
+* [Qué vamos a ver hoy?](#qué-vamos-a-ver-hoy)
+* [Que <strong>no</strong> vamos a ver hoy](#que-no-vamos-a-ver-hoy)
+* [Caso de aplicación](#caso-de-aplicación)
+  * [Generar un nuevo proyecto](#generar-un-nuevo-proyecto)
+  * [Abrimos el proyecto](#abrimos-el-proyecto)
+  * [Ejecución](#ejecución)
+  * [Agregar una dependencia](#agregar-una-dependencia)
+  * [Flasheamos un poco](#flasheamos-un-poco)
+* [Formatear código](#formatear-código)
+* [Documentando](#documentando)
+* [Conceptos generales](#conceptos-generales)
+  * [Gestión de paquetes y fpm](#gestión-de-paquetes-y-fpm)
+  * [Configuaraciones de vscode](#configuaraciones-de-vscode)
+     * [tasks](#tasks)
+     * [launch](#launch)
+  * [Script fortran_project](#script-fortran_project)
+* [Bonus track](#bonus-track)
+  * [Pre-procesadores de código](#pre-procesadores-de-código)
+
 ![frotan](figs/frotan.png)
 
 ## Pasos previos
@@ -124,6 +144,67 @@ archivo main y volver a correr.
 
 Listo, ya sabemos lo esencial para correr un código Fortran. No fue tanto
 quilombo.
+
+## Formatear código
+Entre las instalaciones generales de herramientas se incluyó `findent`,
+`findnent` es un programa de terminal que, entre muchas cosas, indenta
+adecuadamente el código.
+
+La extensión de `Modern Fortran` permite su uso simple desde `vscode`, dando
+click derecho a un código y seleccionando `"Format document"`
+
+![format](figs/format.png)
+
+- "Hay una línea vertical que me vive cortando el código!"
+- Bueno, está ahí porque no tenés que pasarte de eso, código muy largo es
+  ilegible.
+
+Eso es lo esencial, una guía de estilo más completa puede ver en la sección de
+[contribuyendo con yaeos](https://ipqa-research.github.io/yaeos/page/contributing/styleguide.html)
+
+
+## Documentando
+Documentar código es bastante fácil, pero tedioso cuando uno se deja estar,
+lo ideal es hacerlo a medida que escribe sus rutinas (inclusive podría ser lo
+primero que se escribe! Solidifica mejor la idea de lo que va a contener la 
+runtina.
+
+Existe la herramienta `ford` (que se instaló entre todas las herramientas)
+que genera una linda página web con código que se documentó bien. Para trabajar
+con `ford` es importante de respetar el estilo de la documentación:
+
+> Todo lo que es documentación, empieza con `!!`
+
+Como lineamiento general es buena idea documentar:
+
+- Descripción breve en una oración.
+- Descripción más completa.
+- Qué son los argumentos.
+
+```fortran
+subroutine suma(x, y)
+  !! subroutina que suma dos elementos.
+  !!
+  !! Esta subrutiana recibe dos elementos reales a partir de los cuales
+  !! realiza una operación de suma entre ambos elementos y devuelve el
+  !! valor correspondiente a dicha suma.
+  real, intent(in) :: x !! Que es X
+  real, intent(in) :: y !! Que es y
+  real, intent(out) :: z !! Que es z
+  z = x + z
+end subroutine
+```
+
+La documentación se puede generar con:
+
+```bash
+fortran_project make_docs
+```
+
+Dentro de la carpeta de nuestro proyecto.
+
+Eso genera la documentación en la carpeta `doc/ford_site/`, para verla abrir
+el archivo `index.html`
 
 ## Conceptos generales
 Bueno, ahora nos toca meternos un poco más en lo que hicimos recién.
@@ -255,6 +336,7 @@ Básicamente lo que hace es:
         - Opciones de debuggeo
 - Lista todos los proyectos existentes
 - Abre `vscode` en un proyecto de mi elección.
+- Se auto-actualiza.
 
 ```
 fortran_project <new|list|work|update>
@@ -276,7 +358,6 @@ USAGE:
 
     - fortran_project update
         Update the fortran_project script
-
 ```
 
 ## Bonus track
