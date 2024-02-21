@@ -4,21 +4,26 @@
 
 ## Pasos previos
 - Se asumen que se cumplieron los [requisitos principales del curso](../README.md#Requisitos)
-- Realizar la instalación de las [herramientas adicionales para Fortran](https://github.com/ipqa-research/fortran-setup)
+- Realizar la instalación de las [herramientas adicionales para Fortran](https://github.com/ipqa-research/fortran-setup) como se explica en
+  el repositorio mismo.
 
 ## Qué vamos a ver hoy?
-- Ejecutar códigos Fortran.
 - Estructurar un proyecto.
+- Ejecutar códigos Fortran.
 - Formatear consistentemente el código.
+- Documentar código.
 
 ## Que **no** vamos a ver hoy
 Syntaxis de Fortran, no vamos a meternos en el lenguaje en sí, sino en todo lo
-que lo rodea.
+que lo rodea. Eso queda para otro día.
 
 ## Caso de aplicación
-Vamos a ver lo más importante con un ejemplo aplicado
+Vamos a ver lo más importante con un ejemplo aplicado, queremos correr unos
+flashes para un sistema binario.
 
 ### Generar un nuevo proyecto
+Empezamos generando nuestro nuevo proyecto Fortran.
+
 ```bash
 # El nombre de proyecto _no_ puede tener espacios!
 fortran_project new "nombre_projecto"
@@ -118,15 +123,164 @@ archivo main y volver a correr.
 
 
 Listo, ya sabemos lo esencial para correr un código Fortran. No fue tanto
-quilombo
+quilombo.
 
 ## Conceptos generales
+Bueno, ahora nos toca meternos un poco más en lo que hicimos recién.
 
-### Compiladores
+### Gestión de paquetes y fpm
+Para empezar esto, es importante responder:
 
-## Configuaraciones de `vscode`
+Si hasta recién yo estuve compartiendo mis códigos fuentes a
+becarios/investigadores y ellos directamente lo ejecutan y modifican. 
+¿De que me sirve usar gestión de paquetes?
+
+Bueno, esa pregunta se responde con una serie de preguntas:
+
+- Esos códigos compartidos, ¿En cuantas versiones distintas de archivos
+  resultaron? (con sus respectivas mini-modificaciones)
+- ¿Cómo mergearía todas esas versiones? (no podría)
+- ¿Cuántos días productivos perdí hasta darme cuenta de que me falta `X` rutina?
+
+Bueno, utilizar un gestor de paquetes ayuda a mitigar estos problemas.
+
+El Fortran-Package-Manager `fpm` es el gestor de paquetes de `Fortran`.
+Automatiza la tarea de:
+
+- Compilación.
+- Instalación de dependencias.
+- Ejecución de programas.
+
+![fpm](figs/fpm.png)
+
+Más información de `fpm` en [su sitio web](https://fpm.fortran-lang.org/)
+
+### Configuaraciones de `vscode`
+Esto no es un curso de `vscode`, pero vamos a ver algo esencial:
+
+`vscode` puede configurarse agregando archivos particulares en la carpeta
+oculta `.vscode` del proyecto. Los archivos esenciales que hay que saber que
+existen ante cualquier eventualidad son:
+
+- `settings.json`: Configuración general.
+- `tasks.json`: Tareas automatizadas.
+- `launch.json`: Opciones de corrida/debuggeo de código.
+
+
+Ni ustedes quieren ver esto, ni yo quiero darlo, pero es importante saber que
+existen y tener esto como referencia ante alguna eventualidad.
+
+Vamos a ver simplemente un ejemplo de `tasks.json` y `launch.json`.
+
+#### tasks
+Una tarea se estructura así:
+```json
+//task
+...
+{
+  "label": "fpm: install", // Nombre que la describe
+  "type": "shell",         // shell aclara que es un comando
+  "command": "fpm",        // commando en si
+  "args": [                // Lista de argumentos del comando
+    "install",
+    "--profile",
+    "debug",
+    "--prefix",
+    "${workspaceRoot}/build/vscode"
+  ],
+  "group": {
+    "kind": "build",
+    "isDefault": true
+  }
+}
+
+```
+
+En este caso la tarea instala con opciones de debugging al programa principal,
+en la carpeta `./build/vscode`, para luego poder debuggearlo.
+
+
+#### launch
+Solo es "esencial" entender `program` y `args`. En este caso vemos la
+configuración que debuggea el archivo principal.
+
+```json
+{
+  "name": "(gdb) Debug main",
+  "type": "cppdbg",
+  "request": "launch",
+  // El archivo ejecutable que se va a debuggear, la task que vimos antes
+  // lo instala en la carpeta ./build/vscode, y el ejecutable se localiza
+  // en la subcarpeta bin, con el nombre del proyecto (que es igual al nombre
+  // de la carpeta principal del proyecto)
+  "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
+  // Si el programa recive argumentos extra, se añaden aquí.
+  "args": ["coso1", "--coso2", "coso2_valor"],
+  "stopAtEntry": true,
+  "cwd": "${workspaceFolder}",
+  "environment": [],
+  "externalConsole": false,
+  "MIMode": "gdb",
+  "setupCommands": [
+    {
+      "description": "Enable pretty-printing for gdb",
+      "text": "-enable-pretty-printing",
+      "ignoreFailures": true
+    },
+    {
+      "description": "Set Disassembly Flavor to Intel",
+      "text": "-gdb-set disassembly-flavor intel",
+      "ignoreFailures": true
+    }
+  ],
+  "preLaunchTask": "fpm: install"
+}
+```
+
+
+### Script `fortran_project`
+Bueno, todo lo que vimos recién era para entender que pasa de fondo, en
+realidad está todo (en gran parte) encapsulado en un script muy originalmente
+`fortran_project`. Podemos ver su uso general corriendo `fortran_project` sin
+nada. `fortran_project` está pensado para ayudarnos a ordenarnos mejor sin
+pensar mucho.
+
+Básicamente lo que hace es:
+
+- Genera proyectos nuevos siempre en la misma carpeta:
+    - Por defecto en carpeta `~/codes`
+    - Genera el proyecto base con `fpm`
+    - Descarga automaticamente las configuraciones más actualizadas de `vscode`, que están alojadas en [nuestro repo](https://github.com/ipqa-research/vscode-fortran), estas configuraciones tienen:
+        - Cosas generales básicas
+        - Opciones de debuggeo
+- Lista todos los proyectos existentes
+- Abre `vscode` en un proyecto de mi elección.
+
+```
+fortran_project <new|list|work|update>
+
+Manage your Fortran based projects locally with fpm and vscode.
+
+USAGE:
+    - fortran_project new <project_name>
+        Create a new project.
+        The default folder will be at ~/codes, but it can be set up with
+        the environment variable FORTRAN_PROJECTS.
+        If the directory doesn't exist, it will be created.
+
+    - fortran_project list
+        List all the existing Fortran projects.
+    
+    - fortran_project work
+        Open vscode on the selected project directory.
+
+    - fortran_project update
+        Update the fortran_project script
+
+```
 
 ## Bonus track
 Cositas extra que son útiles
 
 ### Pre-procesadores de código
+Es más fácil describir que quiero escribir que escribirlo en sí
