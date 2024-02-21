@@ -339,16 +339,20 @@ Básicamente lo que hace es:
 - Se auto-actualiza.
 
 ```
-fortran_project <new|list|work|update>
+fortran_project <new|list|work|update|docs>
 
 Manage your Fortran based projects locally with fpm and vscode.
 
 USAGE:
     - fortran_project new <project_name>
         Create a new project.
+
         The default folder will be at ~/codes, but it can be set up with
         the environment variable FORTRAN_PROJECTS.
         If the directory doesn't exist, it will be created.
+        The project is generated with `fpm` and, besides the general setting,
+        includes a Ford documentation tempalte, a .gitignore file and
+        some vscode settings.
 
     - fortran_project list
         List all the existing Fortran projects.
@@ -358,6 +362,9 @@ USAGE:
 
     - fortran_project update
         Update the fortran_project script
+    
+    - fortran_project docs
+        Generate Ford documentation.
 ```
 
 ## Bonus track
