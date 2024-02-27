@@ -26,7 +26,7 @@ Wikipedia:
 Python es un lenguaje de alto nivel de programación interpretado cuya filosofía
 hace hincapié en la legibilidad de su código, se utiliza para desarrollar
 aplicaciones de todo tipo, por ejemplo: Instagram, Netflix, Spotify, Panda3D,
-entre otros.2​ Se trata de un lenguaje de programación  multiparadigma, ya que
+entre otros. Se trata de un lenguaje de programación  multiparadigma, ya que
 soporta parcialmente la orientación a objetos, programación imperativa y, en
 menor medida, programación funcional. Es un lenguaje interpretado, dinámico y
 multiplataforma.
