@@ -77,7 +77,10 @@ Checkear la instalacion:
 **WARNING**  
 No confundir `pip` con `pipx`. `pipx` es una herramienta que funciona de manera
 muy similar a `pip`, pero su uso es para instalar aplicaciones desarrolladas en
-Python destinadas a ser utilizadas como comandos de terminal (explicado muy a groso modo). `pip` nos permite instalar librerías de Python para que podamos llamar su código desde nuestros propios códigos de Python. En resumen OLVIDENSE DE INSTALAR COSAS CON `pipx` A MENOS QUE ENTIENDAN QUE ES LO QUE QUIEREN HACER.
+Python destinadas a ser utilizadas como comandos de terminal (explicado muy a
+groso modo). `pip` nos permite instalar librerías de Python para que podamos
+llamar su código desde nuestros propios códigos de Python. En resumen OLVIDENSE
+DE INSTALAR COSAS CON `pipx` A MENOS QUE ENTIENDAN QUE ES LO QUE QUIEREN HACER.
 
 ### Trabajar en entornos virtuales
 
@@ -104,11 +107,30 @@ Un entorno virtual, o virtual environment, es un intérprete de Python aislado
 del intérprete del sistema y de los intérpretes de otros entornos virtuales.
 Las bibliotecas instaladas en él son copias específicas para ese entorno.
 
-Por ejemplo, si creamos dos entornos virtuales (ve1 y ve2) con una versión de
+Por ejemplo, si creamos dos entornos virtuales (`ve1` y `ve2`) con una versión de
 Python 3.11 e instalamos la biblioteca NumPy en ambos, estaríamos instalando
 dos veces la biblioteca NumPy en nuestro sistema. Estas dos copias de NumPy
 instaladas no tienen conocimiento de la existencia de la otra ni tienen
 relación entre sí. Esa es la idea...
+
+#### Cual es la gracia de esto?
+
+_Evitar conflictos de dependencias_
+
+Bueno, hagamos de cuenta de que en `ve1` además queremos instalar una librería
+`X` que necesita `SciPy == 2.7` (que además depende de versiones particulares
+de `NumPy`) y en `ve2` otra librería `Y` que necesita `SciPy <= 2.2`. De no
+tener aisladas esas instalaciones en entornos virtuales estaríamos teniendo
+conflictos donde cada vez que quiero usar `X` o `Y` tengo que reinstalar las
+versiones correspondientes de sus dependencias.
+
+_Reproducibilidad del código_
+
+En ciencia es importante que nuestros resultados sean reproducibles en el
+tiempo. Trabajando con entornos virtuales podemos "congelar" en el tiempo las
+librerías que utilizamos, e incluso dejarlas especificadas al momento de
+compartir. Asegurando que cuando alguien repita nuestros cálculos sean de la
+manera más idéntica posible.
 
 
 ### ¿Cómo creo entornos virtuales de Python?
