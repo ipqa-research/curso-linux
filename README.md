@@ -34,6 +34,12 @@ Se asume que el usuario ya tiene una distribución de linux instalada en su comp
   - Uso desde terminal.
   - Uso desde vscode.
 
+- [Fortran](fortran/)
+  - [Herramientas](fortran/tooling)
+    - Como utilizar con `vscode`
+    - `fpm` y gestión de paquetes
+  - [Conceptos del lenguaje](fortran/lenguaje)
+
 - [Python](python/): Empezar a usar Python bien
   - Historia
   - Uso del administrador de paquetes de Python para instalar librerías (pip).
@@ -42,7 +48,6 @@ Se asume que el usuario ya tiene una distribución de linux instalada en su comp
   - Administración de entornos virtuales desde terminal y VScode.
   - Trabajo con archivos *.py *.ipynb
   - Nociones básicas de estándares de programación. Uso de la librería `black`.
-
 
 ## Autores
 - Benelli, Federico
