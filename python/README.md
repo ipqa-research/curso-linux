@@ -26,8 +26,8 @@ Wikipedia:
 Python es un lenguaje de alto nivel de programación interpretado cuya filosofía
 hace hincapié en la legibilidad de su código, se utiliza para desarrollar
 aplicaciones de todo tipo, por ejemplo: Instagram, Netflix, Spotify, Panda3D,
-entre otros.2​ Se trata de un lenguaje de programación  multiparadigma, ya que
-soporta parcialmente la orientación a objetos, programación imperativa y, en
+entre otros. Se trata de un lenguaje de programación  multiparadigma, ya que
+soporta la orientación a objetos, programación imperativa y, en
 menor medida, programación funcional. Es un lenguaje interpretado, dinámico y
 multiplataforma.
 
@@ -240,7 +240,7 @@ Python y correrlo de la terminal con:
 
 *Ver la carpeta "examples" de este seminario.
 
-También, es posible correr un archivo *.py utilizando el botón correr (▶). Si
+También, es posible correr un archivo *.py utilizando el botón correr . Si
 recibió un error al hacer esto con el example1.py, era lo esperado.
 
 VScode no sabe con cual intérprete de Python se está queriendo correr el
