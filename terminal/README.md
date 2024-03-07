@@ -40,7 +40,7 @@ cal
 ```
 
 ```bash
-cal --three
+cal -3
 ```
 
 ```bash
@@ -48,6 +48,22 @@ cal --help
 ```
 
 ## Comandos más importantes
+Aquí se enumeran con alguna breve descripción los comandos más imporatntes
+para "tener a mano".
+Información detallada de los mismos puede verse ejecutando `man <comando>`
+aunque recomendamos buscarlos en la página [tldr](https://tldr.inbrowser.app/) (_too long, didn't read_)
+
+<details>
+  <summary>Instalar `tldr`</summary>
+  Si bien es suficientemente cómodo usar `tldr` desde la web. Aún mejor sería
+  tenerlo a mano en la misma terminal, para eso podemos simplemente ejecutar
+
+  ```bash 
+  pip install --user tldr
+  ```
+  De no tener pip ver [Curso Python Bien](../python)
+</details>
+
 
 ### Navegación
 - `pwd`: Nos muestran donde estamos parados.
@@ -55,12 +71,17 @@ cal --help
 - `cd` : "Cambiar directorio"
 
 ### Manipulación de archivos y directorios
-- `mkdir`: Crear directorio
-- `mv` : Mover
-- `cp` : Copiar
-- `cat`: Mostrar contenido de archivo
-- `head` y `tail`: Mostrar comienzo o fin de un archivo
-- `grep`: Buscar texto en archivo
+- `mkdir <ruta_directorio_nuevo>`: Crear directorio
+- `mv <desde> <hacia>` : Mover/Renombrar
+- `cp <desde> <hacia>` : Copiar (para copiar directorios se añade la flag `-r`)
+- `rm <ruta_archivo>` : Remover (para remover directorios se añade la flag `-r`)
+- `cat <archivo>`: Mostrar contenido de archivo
+- `head <archivo>` y `tail <archivo>`: Mostrar comienzo o fin de un archivo
+- `grep <texto> <archivo>`: Buscar texto en archivo
+
+> En el caso de `mkidr`, `mv`, `cp` y `rm` siempre es bueno agregar la flag
+> `-v` (de "verboso"), la cual devuelve un texto que confirma la acción
+> realizada.
 
 ### Trabajo con texto
 - `sort`: Ordenar (usar `sort -n` para números)
@@ -70,9 +91,23 @@ cal --help
 - `awk`: Manipular columnas
 
 ### Redirecciones
-- `>`: Enviar los prints a un archivo.
+- `>`: Enviar los prints a un archivo. Lo crea si no existe y sobreescribe lo
+       que exista (`>>` añade al final de un archivo)
 - `|`: Redirigir los prints a un comando.
 - `<`: Redirigir los contenidos de un archivo a un comando.
+
+
+## `.bashrc`
+Cada vez que se abre una terminal nueva, se corre automáticamente una secuencia
+de comandos de configuración previa, esta secuencia se encuentra en el archivo
+`~/.bashrc` y puede ser modificada (preferentemente no tocar nada pero si
+agregar pasos extra al final).
+
+Una simple prueba es abrir el archivo y agregar una nueva línea al final:
+
+```bash
+echo "Hola desde .bashrc!"
+```
 
 ## Aliases
 A veces un comando se utiliza mucho y tiene sentido resumirlo. Esto se hace
@@ -113,7 +148,40 @@ cd "$nombre"
 git submodule add "git@github.com:ipqa-research/vscode-fortran.git" .vscode
 ```
 
+Teniendo la secuencia en un archivo
+
 # Tarea y referencias extra
 
+
+## General
 - [Ejercicios *simples* de terminal](https://linuxjourney.com/lesson/the-shell)
 - [Video sobre uso de terminal](https://www.youtube.com/watch?v=W4gE8k2RE_s&t=1581s)
+
+## Maniplacion de archivos
+Crear una carpeta de trabajo para todas las cosas del curso. Dentro del
+  directorio `~` del usuario.
+
+## Redirecciones
+Usando los comandos `fortune`, `cowsay` y `figlet` (de no estar instalados
+instalarlos con `sudo apt-get install fortune cowsay figlet`.
+
+- Correr `fortune`
+- Guardar el output en un archivo
+- Redirigir el contenido del archivo a `cowsay`
+- Usar la imaginación con `figlet`
+
+## Scripts
+Generar un script que lleve a esa carpeta (nota: los scripts pueden luego
+moverse a `~/.local/bin` para volverlos accesibles en cualquier momento desde
+la terminal, para eso es necesario volverlo ejecutable con `chmod +x
+~/.local/bin/nombre_archivo_script`)
+
+## `.bashrc`
+- Hacer que los comandos `mkdir`, `mv`, `cp`, `rm` siempre sean verbosos.
+- Correr esos comandos con la flag de ayuda (`--help`) y ver si no hay alguna
+  flag extra que estaría bueno que esté siempre.
+   <details>
+     <summary>Ayuda</summary>
+     Buscar alguna flag relacionada a sobreescribir (overwrite) archivos.
+   </details>
+- Hacer que la terminal muestre el calendario cada vez que la abro.
