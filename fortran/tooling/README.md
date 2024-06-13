@@ -23,7 +23,7 @@
 ![frotan](figs/frotan.png)
 
 ## Pasos previos
-- Se asumen que se cumplieron los [requisitos principales del curso](../README.md#Requisitos)
+- Se asumen que se cumplieron los [requisitos principales del curso](https://github.com/ipqa-research/curso-linux/tree/main?tab=readme-ov-file#requisitos)
 - Realizar la instalación de las [herramientas adicionales para Fortran](https://github.com/ipqa-research/fortran-setup) como se explica en
   el repositorio mismo.
 
