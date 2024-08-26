@@ -1,5 +1,7 @@
 # Tutorial de git
 
+![comandos](https://media.licdn.com/dms/image/v2/D4D22AQGHubbI0mCpnQ/feedshare-shrink_800/feedshare-shrink_800/0/1724635008330?e=1727308800&v=beta&t=zviQhHg82Qcw5VLcRddAem8CHTvQSxZxNf5L7ymPChM)
+
 Git es una herramienta de control de versiones muy poderosa que te permite
 rastrear cambios en tus proyectos de software. Aquí tienes una guía rápida para
 comenzar a usar Git.
